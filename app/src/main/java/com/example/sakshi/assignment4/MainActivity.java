@@ -11,7 +11,11 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    Spinner country,states;
+    String[] countries ={"India","USA","Japan"};
+    String[] indianStates = {"chandigarh","jammu and kashmir","Rajasthan"};
+    String[] USAstates ={"LA","Newyork","california"};
+    String[] JapanStates ={"Nagoya","Obu","Ama"};
 
 
     @Override
@@ -19,29 +23,46 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Spinner spinnerDropdown;
-        String[] countries ={"USA","China","Japan"};
-        spinnerDropdown =(Spinner)findViewById(R.id.spinner);
+        country = findViewById(R.id.country);
+        states = findViewById(R.id.state);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,countries);
+        ArrayAdapter<String> countryAdapter = new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line,countries);
+        country.setAdapter(countryAdapter);
 
-            spinnerDropdown.setAdapter(adapter);
+        country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-            spinnerDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int position, long i) {
-                    int id =spinnerDropdown.getSelectedItemPosition();
-                    Toast.makeText(getBaseContext(),"selected countries:" +position,Toast.LENGTH_SHORT).show();
-
+                if(position == 0){
+                    setAdapter(indianStates);
+                }else if (position == 1){
+                    setAdapter(USAstates);
+                }else if (position == 2){
+                    setAdapter(JapanStates);
                 }
 
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
+            }
 
-                }
-            });
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+
+
+            }
+        });
+
 
     }
 
 
+    public void setAdapter(String[] statesArray) {
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line,statesArray);
+        states.setAdapter(arrayAdapter);
+
+    }
 }
+
+
+
+
