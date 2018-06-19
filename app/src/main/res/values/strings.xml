@@ -1,16 +1,14 @@
 <resources>
     <string name="app_name">assignment 4</string>
-<string-array name="Country">
-    <item>India</item>
-    <item>China</item>
-    <item>USA</item>
-    <item>Japan</item>
-</string-array>
-    <string-array name="State">
-        <item>Punjab</item>
-        <item>Jammu and Kashmir</item>
-        <item>California</item>
-        <item>New york</item>
-    </string-array>
-
+    <!--<string-array name="Country">-->
+    <!--<item>China</item>-->
+    <!--<item>USA</item>-->
+    <!--<item>Japan</item>-->
+    <!--</string-array>-->
+    <!--<string-array name="State">-->
+    <!--<item>Punjab</item>-->
+    <!--<item>Jammu and Kashmir</item>-->
+    <!--<item>California</item>-->
+    <!--<item>New york</item>-->
+    <!--</string-array>-->
 </resources>
